@@ -205,7 +205,8 @@ while ($record = mysqli_fetch_array($query)) {
                   </div>
                   <div class="col-lg-6">
                     <div class="form-floating mb-3">
-                      <input <?php echo (($row['username'] == $_SESSION['username_decafe'])) ? 'disabled' : '';?> type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                      <input <?php echo (($row['username'] == $_SESSION['username_decafe'])) ? 'disabled' : ''; ?>
+                        type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
                         name="username" required value="<?php echo $row['username'] ?>">
                       <label for="floatingInput">Username</label>
                       <div class="invalid-feedback">
@@ -284,7 +285,7 @@ while ($record = mysqli_fetch_array($query)) {
                   ?>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger" name="input_edit_validate" value="12345" <?php echo (($row['username'] == $_SESSION['username_decafe'])) ? 'disabled' : '';
+                    <button type="submit" class="btn btn-danger" name="delete_user_validate" value="12345" <?php echo (($row['username'] == $_SESSION['username_decafe'])) ? 'disabled' : '';
                     ?>>Hapus</button>
                   </div>
                 </div>
@@ -296,9 +297,9 @@ while ($record = mysqli_fetch_array($query)) {
 
       <!-- Akhir Modal Delete-->
 
-       <!-- Modal Reset Password-->
-       <div class="modal fade" id="ModalResetPassword<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+      <!-- Modal Reset Password-->
+      <div class="modal fade" id="ModalResetPassword<?php echo $row['id'] ?>" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md modal-fullscreen-md-down">
           <div class="modal-content">
             <div class="modal-header">
@@ -388,7 +389,7 @@ while ($record = mysqli_fetch_array($query)) {
                     <i class="bi bi-pencil-square"></i></button>
                   <button class="btn btn-danger btn-sm me-1" data-bs-toggle="modal"
                     data-bs-target="#ModalDelete<?php echo $row['id'] ?>"><i class="bi bi-trash"></i></button>
-                    <button class="btn btn-secondary btn-sm" data-bs-toggle="modal"
+                  <button class="btn btn-secondary btn-sm" data-bs-toggle="modal"
                     data-bs-target="#ModalResetPassword<?php echo $row['id'] ?>"><i class="bi bi-key"></i></button>
                 </td>
               </tr>
@@ -399,7 +400,7 @@ while ($record = mysqli_fetch_array($query)) {
           </tbody>
         </table>
       </div>
-    <?php
+      <?php
     }
     ?>
   </div>
