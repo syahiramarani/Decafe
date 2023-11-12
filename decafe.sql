@@ -1,20 +1,59 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               8.0.30 - MySQL Community Server - GPL
--- Server OS:                    Win64
--- HeidiSQL Version:             12.1.0.6537
--- --------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 12 Nov 2023 pada 07.39
+-- Versi server: 10.6.15-MariaDB-cll-lve
+-- Versi PHP: 7.2.34
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
--- Dumping structure for table db_decafe.tb_daftar_menu
+--
+-- Database: `u837952942_fadlymaulana`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_bayar`
+--
+
+CREATE TABLE `tb_bayar` (
+  `id_bayar` bigint(20) NOT NULL,
+  `nominal_bayar` bigint(20) DEFAULT NULL,
+  `total_bayar` bigint(20) DEFAULT NULL,
+  `waktu_bayar` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_bayar`
+--
+
+INSERT INTO `tb_bayar` (`id_bayar`, `nominal_bayar`, `total_bayar`, `waktu_bayar`) VALUES
+(2311101829134, 200000, 196000, '2023-11-11 07:49:03'),
+	(2311101830432, 8000000, 300000, '2023-11-11 01:29:18'),
+	(2311101838709, 80000, 75000, '2023-11-11 01:32:29'),
+	(2311102242535, 20000, 18000, '2023-11-11 01:44:34'),
+	(2311110901143, 60000, 50000, '2023-11-11 02:02:53'),
+	(2311111441116, 400000000000000, 360000, '2023-11-11 07:44:59'),
+	(2311111453496, 304000, 300000, '2023-11-11 12:19:47'),
+	(2311121127592, 2000000, 1020000, '2023-11-12 04:28:20');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_daftar_menu`
+--
+
 CREATE TABLE `tb_daftar_menu` (
   `id` int(11) NOT NULL,
   `foto` varchar(200) DEFAULT NULL,
@@ -25,40 +64,118 @@ CREATE TABLE `tb_daftar_menu` (
   `stok` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table db_decafe.tb_daftar_menu: ~6 rows (approximately)
-INSERT INTO `tb_daftar_menu` (`id`, `foto`, `nama_menu`, `keterangan`, `kategori`, `harga`, `stok`) VALUES
-	(2, '1.png', 'Mie Aceh', 'Asli Aceh', 1, '10000', '20'),
-	(4, '2.png', 'Kopi Gayo', 'kopi gayo asli', 4, '5000', '32'),
-	(8, '3.png', 'Nasi Uduk', 'nasi uduk super enak', 1, '8000', '12'),
-	(9, '4.png', 'Jeruk Bariq', 'jeruk asli masam', 3, '12000', '56'),
-	(10, '5.png', 'Burger', 'Burger Keju dengan tambahan dagig turki', 2, '90000', '45'),
-	(11, '6.png', 'Seafood', 'lemak dan bergizi', 3, '30000', '23'),
-	(12, '7.png', 'Bakso Kuah', 'nikmat ketika hujan ', 2, '50000', '13'),
-	(13, '8.png', 'Kepiting', 'special dari bawah laut', 1, '23000', '23'),
-	(14, '9.png', 'Mie instan', 'indomie asli untuk seleramu', 3, '68000', '12'),
-	(15, '10.png', 'Teh Herbal', 'teh untuk mencegah penyakit dalam', 2, '34000', '10'),
-	(16, '11.png', 'Boba', 'minuman santay', 3, '67000', '2'),
-	(17, '12.png', 'Boba cincau', 'minuman boba dengan tambahan cincau', 2, '87000', '3'),
-	(18, '13.png', 'Sunskis', 'asli jeruk dari mandarin', 4, '65000', '5'),
-	(19, '14.png', 'Kepiting Bali', 'kepiting dari bali istimewa', 3, '10000', '7'),
-	(20, '47814-2.png', 'pangsit', 'gada rasa', 1, '800000', '2');
+--
+-- Dumping data untuk tabel `tb_daftar_menu`
+--
 
--- Dumping structure for table db_decafe.tb_kategori_menu
-CREATE TABLE  `tb_kategori_menu` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `jenis_menu` int DEFAULT NULL,
-  `kategori_menu` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+INSERT INTO `tb_daftar_menu` (`id`, `foto`, `nama_menu`, `keterangan`, `kategori`, `harga`, `stok`) VALUES
+(1, '1.png', 'Mie Ayam', 'Pedes asli dari Aceh', 4, '5000', '8'),
+(2, '2.png', 'Burger', 'Pakai kejudan beragam varian', 4, '4000', '12'),
+(3, '3.png', 'Kari Kambing', 'Daging asli dari etawa', 2, '2000', '10'),
+(4, '4.png', 'Kopi Sanger', 'Dingin/panas', 1, '3000', '4'),
+(5, '5.png', 'S Timun', ' Cocok saat cuaca panas', 3, '4000', '12'),
+(6, '6.png', 'Mie Udang', 'Sedap dan gurih', 1, '5000', '12'),
+(7, '7.png', 'Mie Bakso', 'Pedas dan sedap', 4, '10000', '22'),
+(8, '8.png', 'Nasi Uduk', 'Gurih dan lezat', 3, '8000', '18'),
+(9, '9.png', 'Lontong Mak Cik', 'Lontong yang sangat gurih', 3, '6000', '15'),
+(10, '10.png', 'Teh', 'Panas/dingin', 1, '5000', '12'),
+(11, '11.png', 'S Boba', 'Dengan single shot espreso dipadukan dengan susu steam dan boba terciptalah menu yang jos', 2, '8000', '22'),
+(12, '12.png', 'Jus Mangga', 'Segar', 2, '6000', '18'),
+(13, '13.png', 'Jus Jeruk', 'Segar', 2, '6000', '17'),
+(14, '14.png', 'Kepiting Saus Tiram', 'Kepiting lvl 5', 4, '20000', '15');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_kategori_menu`
+--
+
+CREATE TABLE `tb_kategori_menu` (
+  `id_kat_menu` int(11) NOT NULL,
+  `jenis_menu` int(11) DEFAULT NULL,
+  `kategori_menu` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table db_decafe.tb_kategori_menu: ~0 rows (approximately)
-INSERT INTO `tb_kategori_menu` (`id`, `jenis_menu`, `kategori_menu`) VALUES
-	(1, 1, 'Nasi'),
-	(2, 1, 'Snack'),
-	(3, 2, 'Jus'),
-	(4, 2, 'Kopi');
+--
+-- Dumping data untuk tabel `tb_kategori_menu`
+--
 
--- Dumping structure for table db_decafe.tb_user
+INSERT INTO `tb_kategori_menu` (`id_kat_menu`, `jenis_menu`, `kategori_menu`) VALUES
+(1, 2, 'Kopi'),
+(2, 2, 'Juz'),
+(3, 1, 'Nasi'),
+(4, 1, 'Snack');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_list_order`
+--
+
+CREATE TABLE `tb_list_order` (
+  `id_list_order` int(11) NOT NULL,
+  `menu` int(11) DEFAULT NULL,
+  `kode_order` bigint(20) DEFAULT NULL,
+  `jumlah` int(11) DEFAULT NULL,
+  `catatan` varchar(300) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_list_order`
+--
+
+INSERT INTO `tb_list_order` (`id_list_order`, `menu`, `kode_order`, `jumlah`, `catatan`, `status`) VALUES
+(1, 2, 2311060508714, 4, '', 2),
+(2, 5, 2311060508717, 4, 'Dingin', 2),
+(3, 1, 2311120637324, 8, 'Pedas', 2),
+(4, 10, 2311120637324, 4, 'Dingin', 2),
+(5, 7, 2311120637324, 6, 'Pedas', 2),
+(7, 3, 2311060510641, 5, 'Banyak Daging', 1),
+(8, 4, 2311060510641, 4, 'Dingin', 1),
+(9, 5, 2311060510641, 2, 'Dingin', NULL),
+(10, 6, 2311120937392, 2, 'Banyak Kuah', NULL),
+(11, 13, 2311120937392, 7, 'Dingin', NULL),
+(12, 14, 2311120937392, 3, 'Kecapnya banyak ok', NULL),
+(13, 12, 2311120937392, 5, 'Dingin', 1),
+(14, 11, 2311120942618, 6, 'Banyak S nya', 1),
+(15, 9, 2311120942618, 5, 'Pedas ', 1),
+(16, 8, 2311120942618, 10, 'Panas', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_order`
+--
+
+CREATE TABLE `tb_order` (
+  `id_order` bigint(20) NOT NULL DEFAULT 0,
+  `pelanggan` varchar(200) DEFAULT NULL,
+  `meja` int(11) DEFAULT NULL,
+  `pelayan` int(11) DEFAULT NULL,
+  `waktu_order` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data untuk tabel `tb_order`
+--
+
+INSERT INTO `tb_order` (`id_order`, `pelanggan`, `meja`, `pelayan`, `waktu_order`) VALUES
+	(2311101829134, 'mutiasari', 3, 1, '2023-11-10 13:19:23'),
+	(2311101830432, 'mariah', 2, 1, '2023-11-10 13:19:33'),
+	(2311101838709, 'syahira', 1, 1, '2023-11-10 13:19:42'),
+	(2311102242535, 'mulyadi', 5, 1, '2023-11-10 15:42:48'),
+	(2311110901143, 'syahril', 4, 1, '2023-11-11 02:02:08'),
+	(2311111441116, 'sinta', 8, 1, '2023-11-11 07:42:09'),
+	(2311111453496, 'dupir aja lele', 10, 1, '2023-11-11 12:06:18'),
+	(2311121127592, 'syahril luan', 5, 1, '2023-11-12 04:27:46');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_user`
+--
+
 CREATE TABLE `tb_user` (
   `id` int(11) NOT NULL,
   `nama` varchar(200) DEFAULT NULL,
@@ -67,18 +184,117 @@ CREATE TABLE `tb_user` (
   `level` int(11) DEFAULT NULL,
   `nohp` varchar(15) DEFAULT NULL,
   `alamat` varchar(300) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table db_decafe.tb_user: ~6 rows (approximately)
+--
+-- Dumping data untuk tabel `tb_user`
+--
+
 INSERT INTO `tb_user` (`id`, `nama`, `username`, `password`, `level`, `nohp`, `alamat`) VALUES
-	(2, 'owner', 'admin@admin.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, '123456789011', NULL),
-	(3, 'abc2', 'abc2@abc.com', '5f4dcc3b5aa765d61d8327deb882cf99', 3, '123456789011', NULL),
-	(4, 'abc3', 'abc3@abc.com', '5f4dcc3b5aa765d61d8327deb882cf99', 4, '123456789011', NULL),
-	(8, 'lola', 'lola@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, '0859688', 'Cot girek'),
-	(9, 'gani', 'gani@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 3, '0835688865', 'medan');
+	(1, 'sayang bebeb', 'admin@admin.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, '123456789016', 'muara dua'),
+	(2, 'abc2', 'abc2@abc.com', '5f4dcc3b5aa765d61d8327deb882cf99', 3, '123456789011', NULL),
+	(4, 'lola', 'lola@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, '0859688', 'Cot girek'),
+	(5, 'gani', 'gani@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 3, '0835688865', 'medan'),
+	(6, 'slebew', 'slebew@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 2, '084311111', 'paya gaboh'),
+	(7, 'kilau', 'kilau@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 2, '8744444', 'gunung bromo'),
+	(18, 'syarini putri', 'Syarini@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 4, '943111', 'jalan merdeka desa kedondong');
 
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `tb_bayar`
+--
+ALTER TABLE `tb_bayar`
+  ADD PRIMARY KEY (`id_bayar`);
+
+--
+-- Indeks untuk tabel `tb_daftar_menu`
+--
+ALTER TABLE `tb_daftar_menu`
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD KEY `FK_tb_daftar_menu_tb_kategori_menu` (`kategori`) USING BTREE;
+
+--
+-- Indeks untuk tabel `tb_kategori_menu`
+--
+ALTER TABLE `tb_kategori_menu`
+  ADD PRIMARY KEY (`id_kat_menu`) USING BTREE;
+
+--
+-- Indeks untuk tabel `tb_list_order`
+--
+ALTER TABLE `tb_list_order`
+  ADD PRIMARY KEY (`id_list_order`) USING BTREE,
+  ADD KEY `menu` (`menu`),
+  ADD KEY `order` (`kode_order`) USING BTREE;
+
+--
+-- Indeks untuk tabel `tb_order`
+--
+ALTER TABLE `tb_order`
+  ADD PRIMARY KEY (`id_order`) USING BTREE,
+  ADD KEY `pelayan` (`pelayan`);
+
+--
+-- Indeks untuk tabel `tb_user`
+--
+ALTER TABLE `tb_user`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_daftar_menu`
+--
+ALTER TABLE `tb_daftar_menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_kategori_menu`
+--
+ALTER TABLE `tb_kategori_menu`
+  MODIFY `id_kat_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_list_order`
+--
+ALTER TABLE `tb_list_order`
+  MODIFY `id_list_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_user`
+--
+ALTER TABLE `tb_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `tb_daftar_menu`
+--
+ALTER TABLE `tb_daftar_menu`
+  ADD CONSTRAINT `FK_tb_daftar_menu_tb_kategori_menu` FOREIGN KEY (`kategori`) REFERENCES `tb_kategori_menu` (`id_kat_menu`) ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_list_order`
+--
+ALTER TABLE `tb_list_order`
+  ADD CONSTRAINT `FK_tb_list_order_tb_daftar_menu` FOREIGN KEY (`menu`) REFERENCES `tb_daftar_menu` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_tb_list_order_tb_order` FOREIGN KEY (`kode_order`) REFERENCES `tb_order` (`id_order`) ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_order`
+--
+ALTER TABLE `tb_order`
+  ADD CONSTRAINT `FK_tb_order_tb_user` FOREIGN KEY (`pelayan`) REFERENCES `tb_user` (`id`) ON UPDATE CASCADE;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
